@@ -12,9 +12,7 @@ export const databaseProvider = [
         password: 'AVNS_nKOPM9ep06o_HQws2KI',
         database: 'defaultdb',
         synchronize: true,
-            entities: [
-                __dirname + '/../**/*.entity{.ts,.js}',
-            ],
+        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       });
 
       return dataSource.initialize();
