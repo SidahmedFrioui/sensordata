@@ -11,6 +11,11 @@ export class SensorDataController {
     return this.sensorDataService.findAll();
   }
 
+  @Get('/latest')
+  getLatest(): Promise<SensorData> {
+    return this.sensorDataService.findLatest();
+  }
+
   @Post()
   createStore(@Body() sensorData: SensorData): Promise<SensorData> {
     return this.sensorDataService.create(sensorData);

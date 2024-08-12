@@ -13,6 +13,14 @@ export class SensorDataService {
     return await this.sensorDataRepository.find();
   }
 
+  async findLatest(): Promise<SensorData | null> {
+    const results = await this.sensorDataRepository.find({
+      order: { createdAt: 'DESC' },
+      take: 1,
+    });
+    return results[0] || null;
+  }
+
   async create(sensorData: SensorData): Promise<SensorData> {
     return await this.sensorDataRepository.save(sensorData);
   }
