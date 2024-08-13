@@ -5,15 +5,8 @@ import { SensorDataService } from './services/sensor_data.service';
 import { DatabaseModule } from 'src/database/database.module';
 
 @Module({
-  imports: [
-    DatabaseModule,
-  ],
-  controllers: [
-    SensorDataController
-  ],
-  providers: [
-    SensorDataService,
-    ...SensorDataRepository
-  ],
+  imports: [DatabaseModule],
+  controllers: [SensorDataController],
+  providers: [SensorDataService, ...SensorDataRepository],
 })
 export class SensorDataModule {}

@@ -1,4 +1,3 @@
-import { env } from 'process';
 import { DataSource } from 'typeorm';
 
 export const databaseProvider = [
@@ -7,15 +6,13 @@ export const databaseProvider = [
     useFactory: async () => {
       const dataSource = new DataSource({
         type: 'mysql',
-        host: env.DATABASE_HOST,
-        port: parseInt(env.DATABASE_PORT),
-        username: env.DATABASE_USERNAME,
-        password: env.DATABASE_PASSWORD,
-        database: env.DATABASE_NAME,
+        host: 'mysql-9b5fec5-sensordata.e.aivencloud.com',
+        port: 23020,
+        username: 'avnadmin',
+        password: 'AVNS_nKOPM9ep06o_HQws2KI',
+        database: 'defaultdb',
         synchronize: true,
-            entities: [
-                __dirname + '/../**/*.entity{.ts,.js}',
-            ],
+        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       });
 
       return dataSource.initialize();
