@@ -17,7 +17,7 @@ export class SensorData {
   temp: number;
 
   @Column()
-  sensorID: number;
+  sensorID: string;
 
   @Column()
   heatIndex: number;
@@ -30,6 +30,12 @@ export class SensorData {
 
   @Column()
   smoke: number;
+
+  @Column()
+  flame: number;
+
+  @Column()
+  rssi: number;
 
   @Column()
   lpg: number;
