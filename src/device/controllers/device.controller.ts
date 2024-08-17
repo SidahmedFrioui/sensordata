@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { DeviceService } from '../services/device.service';
 import { Device } from '../models/device.entity';
 
-@Controller('device')
+@Controller('devices')
 export class DeviceController {
   constructor(private readonly deviceService: DeviceService) {}
 
