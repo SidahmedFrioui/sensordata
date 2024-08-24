@@ -1,8 +1,9 @@
-import { Controller, Post, Body, Get, UseGuards } from "@nestjs/common";
+import { Controller, Post, Body, Get, UseGuards, Req } from "@nestjs/common";
 import { UserService } from "../services/user.service";
 import { User } from "../models/user.entity";
 import { AuthGuard } from "@nestjs/passport";
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+import { JwtAuthGuard } from "src/core/guards/auth.guard";
 
 export const GetUser = createParamDecorator(
   (data: unknown, context: ExecutionContext) => {
@@ -17,16 +18,16 @@ export class UserController {
         private userService: UserService
     ) {}
 
+    @UseGuards(JwtAuthGuard)
     @Get()
     getUsers(): Promise<User[]> {
         return this.userService.getUsers();
     }
 
+    @UseGuards(JwtAuthGuard)
     @Get('me')
-    @UseGuards(AuthGuard('jwt')) 
-    getProfile(@GetUser() user) {
-        const { password, ...currentUser } = user;
-        return currentUser;
+    getMe(@Req() req: any) {
+        return this.userService.findById(req.user.userId);
     }
 
     @Post('login')
