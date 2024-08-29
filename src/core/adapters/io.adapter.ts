@@ -6,7 +6,7 @@ export class CustomIoAdapter extends IoAdapter {
     // CORS configuration for the socket.io server
     const corsOptions: Partial<ServerOptions> = {
       cors: {
-        origin: 'http://localhost:4200', // Adjust this to match your Angular app's URL
+        origin: 'https://ecoguard-8eb48.web.app', // Adjust this to match your Angular app's URL
         methods: ['GET', 'POST'],
         allowedHeaders: ['Content-Type'],
         credentials: true,
