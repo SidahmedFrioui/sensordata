@@ -44,7 +44,7 @@ export class UserService {
     }
 
     async login(credentials: any): Promise<{token: string}> {
-        const user = await this.findOne(credentials.username);
+        const user = await this.findOne(credentials.email);
         const passwordMatch = await bcrypt.compare(credentials.password, user.password);
 
         if (!user || !passwordMatch) {
