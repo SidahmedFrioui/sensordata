@@ -6,10 +6,10 @@ export const databaseProvider = [
     useFactory: async () => {
       const dataSource = new DataSource({
         type: 'mysql',
-        host: 'mysql-9b5fec5-sensordata.e.aivencloud.com',
+        host: '',
         port: 23020,
-        username: 'avnadmin',
-        password: 'AVNS_nKOPM9ep06o_HQws2KI',
+        username: '',
+        password: '',
         database: 'defaultdb',
         synchronize: true,
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
